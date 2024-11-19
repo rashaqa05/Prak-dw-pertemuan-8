@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Rashaqa - Portfolio</title>
+
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Font & Icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="bg-blue-100 text-black-800 font-poppins">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+        <ul class="flex space-x-6">
+            <li><a href="#home" class="text-gray-600 hover:text-blue-500">Home</a></li>
+            <li><a href="#about" class="text-gray-600 hover:text-blue-500">About Me</a></li>
+            <li><a href="#skills" class="text-gray-600 hover:text-blue-500">My Skills</a></li>
+            <li><a href="#learn" class="text-gray-600 hover:text-blue-500">Learn</a></li>
+        </ul>
+        
+        <!-- Dark-mode Toggle -->
+        <button class="text-gray-600 hover:text-blue-500" onclick="toggleTheme()">
+            <i id="theme-icon" class='bx bx-moon text-xl'></i>
+        </button>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container p-8">
+        <!-- Home Section -->
+        <section id="home" class="text-center my-12">
+            <h1 class="text-4xl font-bold text-gray-900">Muhammad Rashaqa</h1>
+            <p class="text-lg text-gray-600 mt-2">Mahasiswa Informatika | 4523210078</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="my-12">
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-900">About Me</h2>
+                    <p class="text-gray-700 mt-2">Halo! Saya Muhammad Rashaqa, mahasiswa berumur 19 tahun yang sedang menempuh pendidikan di Universitas Pancasila. Saya memiliki passion dalam dunia pemrograman dan pengembangan web.</p>
+                    <p class="text-gray-700 mt-2">Saat ini saya fokus mengembangkan keterampilan dalam berbagai bahasa pemrograman dan teknologi web modern untuk membangun solusi yang inovatif.</p>
+                    <p class="text-gray-700 mt-2">Harapan saya dan teman-teman seperjuangan saya, dapat mengabdikan diri untuk nusa dan bangsa.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-900">Data Diri</h2>
+                    <ul class="text-gray-700 mt-2 space-y-1">
+                        <li>Nama: Muhammad Rashaqai</li>
+                        <li>Umur: 19 Tahun</li>
+                        <li>Pendidikan: Universitas Pancasila</li>
+                        <li>Lokasi: Bogor, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="my-12">
+            <h2 class="text-2xl font-semibold text-center text-gray-900">My Skills</h2>
+            <div class="skills-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                <div class="skill-card p-6 bg-white rounded-lg shadow text-center">
+                    <h3 class="text-xl font-semibold text-gray-800">Java</h3>
+                    <p class="text-gray-600">Object-Oriented Programming</p>
+                </div>
+                <div class="skill-card p-6 bg-white rounded-lg shadow text-center">
+                    <h3 class="text-xl font-semibold text-gray-800">C++</h3>
+                    <p class="text-gray-600">Algorithm</p>
+                </div>
+                <div class="skill-card p-6 bg-white rounded-lg shadow text-center">
+                    <h3 class="text-xl font-semibold text-gray-800">HTML</h3>
+                    <p class="text-gray-600">Web Structure</p>
+                </div>
+                <div class="skill-card p-6 bg-white rounded-lg shadow text-center">
+                    <h3 class="text-xl font-semibold text-gray-800">CSS</h3>
+                    <p class="text-gray-600">Web Design</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center text-gray-300 py-4">
+        <p>&copy; 2024 Rashaqa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById("theme-icon");
+            if (body.classList.contains("bg-blue-100")) {
+                body.classList.replace("bg-blue-100", "bg-gray-900");
+                body.classList.replace("text-black-800", "text-gray-300");
+                icon.classList.replace("bx-moon", "bx-sun");
+                localStorage.setItem("theme", "dark");
+            } else {
+                body.classList.replace("bg-gray-900", "bg-blue-100");
+                body.classList.replace("text-gray-300", "text-black-800");
+                icon.classList.replace("bx-sun", "bx-moon");
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        // Load theme on page load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                document.body.classList.replace("bg-blue-100", "bg-gray-900");
+                document.body.classList.replace("text-black-800", "text-gray-300");
+                document.getElementById("theme-icon").classList.replace("bx-moon", "bx-sun");
+            }
+        };
+    </script>
+</body>
+</html>
